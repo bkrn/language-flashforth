@@ -65,7 +65,7 @@
 					"name": "constant.language.forth"
 				},
 				{
-					"match": "(?<=^|\\s)([$#%]?[-+]?[0-9]+(\\.[0-9]*e(-?[0-9]+)|\\.?[0-9a-fA-F]*))(?=\\s)",
+					"match": "(?<=^|\\s)([$#%]?[-+]?[0-9a-f]+(\\.[0-9]*e(-?[0-9]+)|\\.?[0-9a-f]*))(?=\\s)",
 					"name": "constant.numeric.forth"
 				},
 				{
@@ -167,22 +167,29 @@
 				{
 					"match": "(?<=^|\\s)(?i:(~~|BREAK:|BREAK\"|DBG))(?=\\s)",
 					"name": "keyword.other.warning.forth"
+				},
+				{
+					"match": "(?<=constant\\s)(\\S{16,})(?=\\s)",
+					"name": "invalid.illegal.flashforth"
 				}
 			]
 		},
 		"word-def": {
-			"begin": "(^:|\\s:)\\s(\\S+)\\s|(?i:(:NONAME))",
+			"begin": "(^:|\\s:)\\s((\\S{1,15})|\\S{16,})\\s|(?i:(:NONAME))",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.other.compile-only.forth"
 				},
-				"2": {
+				"3": {
 					"name": "entity.name.function.forth"
 				},
-				"3": {
-					"name": "keyword.other.compile-only.forth"
+				"2": {
+					"name": "invalid.illegal.flashforth"
 				},
 				"4": {
+					"name": "keyword.other.compile-only.forth"
+				},
+				"5": {
 					"name": "keyword.other.word.forth"
 				}
 			},

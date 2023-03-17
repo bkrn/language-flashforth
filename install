@@ -1,0 +1,3 @@
+#! /usr/bin/env sh
+rm -rf ~/.vscode/extensions/language-flashforth
+cp -r ../language-flashforth ~/.vscode/extensions
